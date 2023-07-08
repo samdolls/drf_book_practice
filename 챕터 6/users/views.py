@@ -2,7 +2,8 @@ from rest_framework import viewsets, generics, permissions, mixins
 from rest_framework.response import Response
 
 from django.contrib.auth.models import User
-from .serializers import RegisterSerializer, LoginSerializer
+from .serializers import RegisterSerializer, LoginSerializer, ProfileSerializer
+from .models import Profile
 
 from django.shortcuts import get_object_or_404
 
@@ -22,3 +23,7 @@ class LoginView(generics.GenericAPIView):
             "token" : token.key,
         }
         return Response(data)
+    
+class ProfileView(generics.RetrieveUpdateAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
