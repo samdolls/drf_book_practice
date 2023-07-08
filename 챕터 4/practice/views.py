@@ -89,14 +89,14 @@ from django.shortcuts import get_object_or_404
 #         return self.destroy(request, *args, **kwargs)
 
 # Generics
-class BooksAPIGenerics(generics.ListCreateAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
+# class BooksAPIGenerics(generics.ListCreateAPIView):
+#     queryset = Book.objects.all()
+#     serializer_class = BookSerializer
 
-class BookAPIGenerics(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    lookup_field = 'book_id'
+# class BookAPIGenerics(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Book.objects.all()
+#     serializer_class = BookSerializer
+#     lookup_field = 'book_id'
 
 # ViewSet
 class BookViewSet(viewsets.ModelViewSet):
